@@ -1,10 +1,10 @@
 dependencies:
   override:
-    - npm install
+    - npm install:
         pwd: client
-    - npm install
+    - npm install:
         pwd: server
-    - bower install
+    - bower install:
         pwd: client
   cache_directories:
     - client/node_modules

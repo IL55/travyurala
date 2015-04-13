@@ -18,7 +18,8 @@ machine:
 
 test:
   override:
-    - grunt test
+    - grunt build:
+        pwd: client
 
 
   post:

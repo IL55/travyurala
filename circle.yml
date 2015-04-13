@@ -1,0 +1,42 @@
+dependencies:
+  override:
+    - npm install
+        pwd: client
+    - npm install
+        pwd: server
+    - bower install
+        pwd: client
+  cache_directories:
+    - client/node_modules
+    - server/node_modules
+    - client/bower_components
+
+
+machine:
+  environment:
+    NODE_ENV: test
+
+test:
+  override:
+    - grunt test
+
+
+  post:
+    - sed -i -r '/^static\/?\s*$/d' server/.gitignore
+    # - sed -i -r '/^node_modules\/?\s*$/d' client/.gitignore
+    # - sed -i -r '/^bower_components\/?\s*$/d' client/.gitignore
+    - git config user.name "igor@salsitasoft.com"
+    - git config user.email "igor@salsitasoft.com"
+    - git --no-pager diff server/.gitignore
+    - git status
+    - git add -A
+    - git status
+    - git commit -m "build"
+
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - git push -f git@heroku.com:travy-urala.git ${CIRCLE_SHA1}:refs/heads/master
+

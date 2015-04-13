@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="menu-item">
+        <a ng-href="#/" class="btn btn-default btn-lg" role="button">Травы</a>
+      </div>
+      <div class="menu-item">
+        <a class="btn btn-default btn-lg active" role="button">Бальзамы</a>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div ng-repeat="herbal in herbalList">
+        <h4>{{herbal.name}}</h4>
+        <img class="img-small" ng-src="images/{{herbal.image}}"/>
+        <p>
+          <h4>{{herbal.detail}}</h4>
+        </p>
+        <div ng-click="showDetails(herbal)" class="clickable">
+          подробнее...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ test:
     # - sed -i -r '/^bower_components\/?\s*$/d' client/.gitignore
     - git config user.name "igor@salsitasoft.com"
     - git config user.email "igor@salsitasoft.com"
-    - git --no-pager diff /.gitignore
+    - git --no-pager diff .gitignore
     - git status
     - git add -A
     - git status

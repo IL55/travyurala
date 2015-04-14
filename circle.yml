@@ -18,7 +18,7 @@ test:
         pwd: client
 
   post:
-    - sed -i -r '/^public\/?\s*$/d' server/.gitignore
+    - sed -i -r '/^public\/?\s*$/d' .gitignore
     - cp -aR client/dist/. public
     # - sed -i -r '/^node_modules\/?\s*$/d' client/.gitignore
     # - sed -i -r '/^bower_components\/?\s*$/d' client/.gitignore

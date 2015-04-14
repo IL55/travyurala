@@ -29,8 +29,6 @@ test:
     # - sed -i -r '/^bower_components\/?\s*$/d' client/.gitignore
     - git config user.name "igor@salsitasoft.com"
     - git config user.email "igor@salsitasoft.com"
-    - heroku stack:set cedar-14 -a travy-urala
-    - git commit -m "update to cedar-14" --allow-empty
     - git --no-pager diff server/.gitignore
     - git status
     - git add -A

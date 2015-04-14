@@ -29,7 +29,7 @@ test:
     - git add -A
     - git status
     - git commit -m "build"
-
+    - git log -n3
 
 deployment:
   prod:

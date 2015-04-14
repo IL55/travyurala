@@ -2,15 +2,11 @@ dependencies:
   override:
     - npm install:
         pwd: client
-    - npm install:
-        pwd: server
     - bower install:
         pwd: client
   cache_directories:
     - client/node_modules
-    - server/node_modules
     - client/bower_components
-
 
 machine:
   environment:
@@ -21,10 +17,9 @@ test:
     - grunt build:
         pwd: client
 
-
   post:
     - sed -i -r '/^public\/?\s*$/d' server/.gitignore
-    - cp -aR client/dist/. server/public
+    - cp -aR client/dist/. public
     # - sed -i -r '/^node_modules\/?\s*$/d' client/.gitignore
     # - sed -i -r '/^bower_components\/?\s*$/d' client/.gitignore
     - git config user.name "igor@salsitasoft.com"
